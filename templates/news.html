@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<header class="header">
+        <div class="logo"><a href="{% url 'home' %}"><svg width="154" height="106" viewBox="0 0 154 106" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="154" height="106" fill="#FFEF9C"/>
+            <path d="M9.5 87.5V85H7V82.5H9.5V75H7V72.5H9.5V70H14.5V72.5H17V70H22V72.5H24.5V75H22V82.5H24.5V85H22V87.5H17V85H14.5V87.5H9.5ZM14.5 82.5H17V75H14.5V82.5Z" fill="black"/>
+            <path d="M34 85V71H46V75H44V73H38V85H34ZM48 85V71H60V73H62V79H60V81H52V85H48ZM52 79H58V73H52V79ZM64 85V75H66V73H68V71H74V73H76V75H78V85H74V81H68V85H64ZM68 79H74V75H72V73H70V75H68V79ZM86 85V83H82V81H80V75H82V73H86V71H88V73H92V75H94V81H92V83H88V85H86ZM84 81H86V75H84V81ZM88 81H90V75H88V81ZM98 85V83H96V73H98V71H108V73H110V83H108V85H98ZM100 83H106V73H100V83ZM112 85V71H116V73H118V75H120V73H122V71H126V85H122V77H120V81H118V77H116V85H112ZM132 81V71H138V77H136V81H132ZM132 85V83H136V85H132Z" fill="black"/>
+            <path d="M20 38V36H18V34H16V28H18V26H20V24H28V26H30V28H26V26H22V28H20V34H22V36H26V34H30V36H28V38H20ZM38 38V26H34V24H46V26H42V38H38ZM48 38V28H50V26H52V24H58V26H60V28H62V38H58V34H52V38H48ZM52 32H58V28H56V26H54V28H52V32ZM70 38V26H66V24H78V26H74V38H70ZM80 38V24H84V28H92V30H94V36H92V38H80ZM84 36H90V30H84V36Z" fill="black"/>
+            <line x1="118.77" y1="14.3277" x2="130.243" y2="45.7181" stroke="black" stroke-width="2"/>
+            <line x1="106.075" y1="14.2394" x2="116.95" y2="45.8422" stroke="black" stroke-width="2"/>
+            </svg>
+            </a> </div>
+        <div class="navigation">
+            <div class="navigation_buttons">
+                <a href="{% url 'news' %} " class="navigation_button">Обновление</a>
+                <a href="#manage" class="navigation_button">Управление</a>
+                <a href="#downloading" class="navigation_button" id="downloading_button">Скачать</a>
+            </div>
+            <hr>
+        </div>
+    </header>
+    {% for p in post_list %}
+        <div class="post">
+        <p class="title">{{ p.title }}</p>
+        <p class="body">{{ p.body }}</p>
+        </div>
+    {% endfor %}
+{% endblock content %}

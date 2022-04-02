@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Raleway:ital,wght@0,100;0,200;1,100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?version=x">
+    <title>Become Graf</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <script>
+        jQuery(document).ready(function($){
+$('#scrollToTop').fadeOut(); //скрываем кнопку
+$(window).scroll(function () {
+if ($(this).scrollTop() > 400) { // при прокрутке страницы на 250 пикселей вниз
+$('#scrollToTop').fadeIn();   // отображаем кнопку
+} else {
+$('#scrollToTop').fadeOut(); // в противном случае скрываем
+}
+});
+});
+var timeOut;
+function goUp() {
+   var top = Math.max(document.body.scrollTop,document.documentElement.scrollTop);
+   if(top > 0) {
+      window.scrollBy(0,-100);
+      timeOut = setTimeout('goUp()',20);
+   } else clearTimeout(timeOut);
+}
+ </script>
+</head>
+<body>
+    <div class="wrapper">
+        {% block content %}
+
+        {% endblock content %}
+    </div>
+        </body>
+</html>
